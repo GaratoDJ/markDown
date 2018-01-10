@@ -15,7 +15,14 @@
 * 설치 후 실행시 Create a new virtual machine클릭
 * 선택지가 두개가 있는데 Typical을 선택하자
 
+* 아래처럼 CentOS ISO파일을 지정해주고 NEXT 클릭
 >>![vm 0](https://user-images.githubusercontent.com/27793242/34790615-a391caae-f685-11e7-96a5-ad31682138a6.PNG)
-* 요렇게 CentOS ISO파일을 지정해주고 NEXT 클릭
+
+* next Step
+>>![vm 1](https://user-images.githubusercontent.com/27793242/34790616-a3bbeff0-f685-11e7-894e-9374f42df884.PNG)
+
+* 할당 용량 관련 설정. store virtual disk 를 체크
+![vm 2](https://user-images.githubusercontent.com/27793242/34790617-a3e82bb0-f685-11e7-8ef6-0535924bd4d2.PNG)
+
 
 >>(vm설정1.png)
