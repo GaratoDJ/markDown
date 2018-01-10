@@ -41,3 +41,23 @@
 * 설치가 완료되면 창이 열린다! 등록한 사용자명, 패스워드를 입력하고 python 설치에 도전한다.
 ![python 1](https://user-images.githubusercontent.com/27793242/34790614-a365c67a-f685-11e7-903c-e9ef17f9e4c2.PNG)
 
+# 여기부터는 글로 설명
+* CentOS 설치시 python 명령어를 입력하면 현재 버전은 2.7.5 정도일것이다( 확인후 리눅스 쉘로 나올땐 ctrl+d)
+
+## 최신 환경 업데이트 순서
+### 리눅스 환경 업데이트
+* 먼저 현재 root로 로그인 된 상태가 아니니 root로 바꿔준다.
+* su //입력시 root로 변환
+* yum install // 입력 후 환경 업데이트. 다소 시간이 걸린다. 중간에 선택지가 나오는데 모두 y로 처리 하자
+* yum install wget // 입력 설치. wget으로 파이썬을 설치할 예정
+* wget https://www.python.org/ftp/python/3.6.4/Python-3.6.4.tgz // 입력하여 파일 받기
+* ls // 입력하여 다운받은 파일 확인
+* tar xvfz Python-3.6.4.tgz // 입력
+* cd(change directory) 를 이용하여 파이썬 폴더로 이동
+* ./configure --prefix=/usr/local/python3.6.4 --enable-shared // 설치. 중간에 뭐 선택지 나오면 무조건 y.
+* 위의 과정이 끝나면 make install 입력
+* yum install zlib-devel 입력
+* ls // 입력하여 complete를 확인.
+
+# 여기까지 하고 나면 에러가 난다......
+![default](https://user-images.githubusercontent.com/27793242/34790627-a5723f7a-f685-11e7-9ebc-486384b4617f.PNG)
