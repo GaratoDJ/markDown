@@ -15,7 +15,7 @@
 * 설치 후 실행시 Create a new virtual machine클릭
 * 선택지가 두개가 있는데 Typical을 선택하자
 
->>(vm설정0.png)
+>>![vm 0](https://user-images.githubusercontent.com/27793242/34790615-a391caae-f685-11e7-96a5-ad31682138a6.PNG)
 * 요렇게 CentOS ISO파일을 지정해주고 NEXT 클릭
 
 >>(vm설정1.png)
