@@ -58,8 +58,9 @@
 * 위의 과정이 끝나면 make install 입력
 * yum install zlib-devel 입력
 * ls // 입력하여 complete를 확인.
-　
- 　
-  　
+#　
+# 　
+#
+#　
 # 여기까지 하고 나면 에러가 난다......
 ![default](https://user-images.githubusercontent.com/27793242/34790627-a5723f7a-f685-11e7-9ebc-486384b4617f.PNG)
