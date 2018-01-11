@@ -27,4 +27,4 @@
 >> ![우웩](http://cafefiles.naver.net/20130904_144/dadol3_13782937004024UgOp_JPEG/2013-09-04_PM_08-12-16.jpg)
 
 
-![Uploading 스크린샷 2018-01-11 오후 7.30.29.png…]()
+![2018-01-11 7 30 29](https://user-images.githubusercontent.com/27793242/34821189-447ad05c-f706-11e7-96c7-6bdac3164171.png)
