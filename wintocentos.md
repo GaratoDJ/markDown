@@ -37,7 +37,7 @@
 ![vm 5](https://user-images.githubusercontent.com/27793242/34790620-a46e22ec-f685-11e7-913c-fa8ad50ecdde.PNG)
 
 * 우측 중앙의 소프트웨어 선택란을 주목하자
-![default](https://user-images.githubusercontent.com/27793242/35059026-26c00f4a-fbfd-11e7-896d-360aa2ca941a.PNG)
+![default](https://user-images.githubusercontent.com/27793242/35060684-86572b1e-fc02-11e7-82ab-a9421ffc157a.PNG)
 
 * 작성자는 GNOME으로 설정을 해주었다.
 ![2](https://user-images.githubusercontent.com/27793242/35059028-26f2278c-fbfd-11e7-9885-4d9f3b9bfa37.PNG)
