@@ -44,29 +44,52 @@
 * 암호 및 사용자 생성란.
 ![vm 6](https://user-images.githubusercontent.com/27793242/34790623-a4c42c46-f685-11e7-828b-6e09f7e48828.PNG)
 
-* 설치가 완료되면 창이 열린다! 등록한 사용자명, 패스워드를 입력하고 python 설치에 도전한다.
-![python 1](https://user-images.githubusercontent.com/27793242/34790614-a365c67a-f685-11e7-903c-e9ef17f9e4c2.PNG)
+* 모든 과정을 거치고 CentOS7의 바탕화면이 나왔다.
+![3](https://user-images.githubusercontent.com/27793242/35059029-271f0810-fbfd-11e7-912c-2de5ff05d9d9.PNG)
+>>좌측 상단의 프로그램을 클릭 하면 터미널이 열리게 된다. 앞으로의 설명은 터미널을 기준으로 설명하겠다.
 
-# 여기부터는 글로 설명
-* CentOS 설치시 python 명령어를 입력하면 현재 버전은 2.7.5 정도일것이다( 확인후 리눅스 쉘로 나올땐 ctrl+d)
+* 먼저 패키지 관리 도구인 yum을 설치할 것이다. 맥의 brew와 같은 개념이다.
+* 먼저 yum을 설치해줘야해서 명령어를 입력하면 아래와 같은 오류가 발생한다.
+![4](https://user-images.githubusercontent.com/27793242/35059030-274fd0d0-fbfd-11e7-952b-7cd9ce8e4777.PNG)
+>>root권한이 있어야 해당 명령을 실행 할 수 있다고 나온다.
 
-## 최신 환경 업데이트 순서
-### 리눅스 환경 업데이트
-* 먼저 현재 root로 로그인 된 상태가 아니니 root로 바꿔준다.
-* su //입력시 root로 변환
-* yum install // 입력 후 환경 업데이트. 다소 시간이 걸린다. 중간에 선택지가 나오는데 모두 y로 처리 하자
-* yum install wget // 입력 설치. wget으로 파이썬을 설치할 예정
-* wget https://www.python.org/ftp/python/3.6.4/Python-3.6.4.tgz // 입력하여 파일 받기
-* ls // 입력하여 다운받은 파일 확인
-* tar xvfz Python-3.6.4.tgz // 입력
-* cd(change directory) 를 이용하여 파이썬 폴더로 이동
-* ./configure --prefix=/usr/local/python3.6.4 --enable-shared // 설치. 중간에 뭐 선택지 나오면 무조건 y.
-* 위의 과정이 끝나면 make install 입력
-* yum install zlib-devel 입력
-* ls // 입력하여 complete를 확인.
-#　
-# 　
-#　
-#　
-# 여기까지 하고 나면 에러가 난다......
-![default](https://user-images.githubusercontent.com/27793242/34790627-a5723f7a-f685-11e7-9ebc-486384b4617f.PNG)
+* 아래와 같이 su를 입력하면 암호를 입력하라 나오는데 CentOS를 설치 할 때 입력한 root권한의 암호를 입력해준다.
+![5](https://user-images.githubusercontent.com/27793242/35059031-277b2898-fbfd-11e7-81dd-88e6e80f0c44.PNG)
+
+* 루트권한을 갖게되면 yum을 설치 및 관리가 가능해진다.
+* 나는 설치시 이미 yum 이 설치되어있다는 문구가 나와서 업데이트를 해주었다.
+![6](https://user-images.githubusercontent.com/27793242/35059032-27aab6b2-fbfd-11e7-9adf-3b7c10140793.PNG)
+
+* 이후에 python --version 이라고 입력해주면 python의 버전이 2.x 일것이다.
+* python의 버전을 3.x로 설치 및 버전 관리를 위해서 pyenv를 설치할것이다.
+* pyenv 는 로컬에 다양한 파이썬 버전을 설치하고 사용할 수 있도록 한다.
+* pyenv를 사용함으로써 파이썬 버전에 대한 의존성을 해결할 수 있다.
+
+* 해당 명령어를 터미널에 순차적으로 입력한다.
+yum -y install git
+yum -y groupinstall "Development Tools"
+yum -y install readline-devel zlib-devel bzip2-devel sqlite-devel openssl-devel
+git clone https://github.com/yyuu/pyenv.git ~/.pyenv
+echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bash_profile
+echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bash_profile
+echo 'eval "$(pyenv init -)"' >> ~/.bash_profile
+source ~/.bash_profile
+exec $SHELL -l
+
+* pyenv-virtualenv도 추가 설치.(로컬에 파이썬 환경을 구축, 사용할 수 있도록 한다.
+git clone https://github.com/yyuu/pyenv-virtualenv.git ~/.pyenv/plugins/pyenv-virtualenv
+echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.bash_profile
+exec $SHELL -l
+
+* 설치가 완료되면 pyenv install 3.6.4 를 입력하여 파이썬 3.6.4를 설치할 수 있다.
+* pyenv를 통해 인스톨 가능한 목록은 pyenv install --list 를 통해 확인할 수 있다.
+* 최신버전이 있다면 목록을 확인 후 설치하면 된다.
+![13](https://user-images.githubusercontent.com/27793242/35059046-2964f42c-fbfd-11e7-9347-5717bf18fbd1.PNG)
+
+* pyenv global 3.6.4 를 입력하여 버전을 변경 후 pyenv version 을 입력해주면(스크린샷에는 다르게 나와있지만 둘다 확인 가능)
+![14](https://user-images.githubusercontent.com/27793242/35059047-2996c380-fbfd-11e7-8276-c8064e889361.PNG)
+
+* system상에 두가지 버전이 존재하는것을 확인할 수 있다.
+![15](https://user-images.githubusercontent.com/27793242/35059048-29c53044-fbfd-11e7-8229-87239a206f5e.PNG)
+
+* 추가로 pip install -U pip 을 입력하면 현재 global로 지정되어있는 파이썬의 버전을 사용자 환경의 기본으로 변경한다.
