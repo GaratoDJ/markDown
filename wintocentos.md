@@ -35,6 +35,12 @@
 * 스크린샷에서 잘렸는데 설치요약 부분의 하단에 시스템란 하단에 네트워크 설정이 있는데 켬 으로 설정하자
 ![vm 5](https://user-images.githubusercontent.com/27793242/34790620-a46e22ec-f685-11e7-913c-fa8ad50ecdde.PNG)
 
+* 우측 중앙의 소프트웨어 선택란을 주목하자
+![default](https://user-images.githubusercontent.com/27793242/35059026-26c00f4a-fbfd-11e7-896d-360aa2ca941a.PNG)
+
+* 작성자는 GNOME으로 설정을 해주었다.
+![2](https://user-images.githubusercontent.com/27793242/35059028-26f2278c-fbfd-11e7-9885-4d9f3b9bfa37.PNG)
+
 * 암호 및 사용자 생성란.
 ![vm 6](https://user-images.githubusercontent.com/27793242/34790623-a4c42c46-f685-11e7-828b-6e09f7e48828.PNG)
 
