@@ -51,15 +51,15 @@
 
 * 먼저 패키지 관리 도구인 yum을 설치할 것이다. 맥의 brew와 같은 개념이다.
 * 먼저 yum을 설치해줘야해서 명령어를 입력하면 아래와 같은 오류가 발생한다.
-![4](https://user-images.githubusercontent.com/27793242/35059030-274fd0d0-fbfd-11e7-952b-7cd9ce8e4777.PNG)
+![4](https://user-images.githubusercontent.com/27793242/35060796-c9942e4a-fc02-11e7-9a2d-4f8735987fb1.PNG)
 >>root권한이 있어야 해당 명령을 실행 할 수 있다고 나온다.
 
 * 아래와 같이 su를 입력하면 암호를 입력하라 나오는데 CentOS를 설치 할 때 입력한 root권한의 암호를 입력해준다.
-![5](https://user-images.githubusercontent.com/27793242/35059031-277b2898-fbfd-11e7-81dd-88e6e80f0c44.PNG)
+![5](https://user-images.githubusercontent.com/27793242/35060771-ba5ba2d2-fc02-11e7-9074-59436863deb3.PNG)
 
 * 루트권한을 갖게되면 yum을 설치 및 관리가 가능해진다.
 * 나는 설치시 이미 yum 이 설치되어있다는 문구가 나와서 업데이트를 해주었다.
-![6](https://user-images.githubusercontent.com/27793242/35059032-27aab6b2-fbfd-11e7-9adf-3b7c10140793.PNG)
+![6](https://user-images.githubusercontent.com/27793242/35060821-d388b2d6-fc02-11e7-9376-48714212eb52.PNG)
 
 * 이후에 python --version 이라고 입력해주면 python의 버전이 2.x 일것이다.
 * python의 버전을 3.x로 설치 및 버전 관리를 위해서 pyenv를 설치할것이다.
@@ -85,13 +85,13 @@ exec $SHELL -l
 * 설치가 완료되면 pyenv install 3.6.4 를 입력하여 파이썬 3.6.4를 설치할 수 있다.
 * pyenv를 통해 인스톨 가능한 목록은 pyenv install --list 를 통해 확인할 수 있다.
 * 최신버전이 있다면 목록을 확인 후 설치하면 된다.
-![13](https://user-images.githubusercontent.com/27793242/35059046-2964f42c-fbfd-11e7-9347-5717bf18fbd1.PNG)
+![13](https://user-images.githubusercontent.com/27793242/35060861-e2b3c016-fc02-11e7-9f4f-061fbc8d8d33.PNG)
 
 * pyenv global 3.6.4 를 입력하여 버전을 변경 후 pyenv version 을 입력해주면(스크린샷에는 다르게 나와있지만 둘다 확인 가능)
-![14](https://user-images.githubusercontent.com/27793242/35059047-2996c380-fbfd-11e7-8276-c8064e889361.PNG)
+![14](https://user-images.githubusercontent.com/27793242/35060879-ef532316-fc02-11e7-8f0b-7ced25176d56.PNG)
 
 * system상에 두가지 버전이 존재하는것을 확인할 수 있다.
-![15](https://user-images.githubusercontent.com/27793242/35059048-29c53044-fbfd-11e7-8229-87239a206f5e.PNG)
+![15](https://user-images.githubusercontent.com/27793242/35060886-f5dfe32c-fc02-11e7-9fe8-e7b8ffc0e3b3.PNG)
 
 * 추가로 pip install -U pip 을 입력하면 현재 global로 지정되어있는 파이썬의 버전을 사용자 환경의 기본으로 변경한다.
 
