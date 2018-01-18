@@ -89,13 +89,16 @@ exec $SHELL -l
 * 설치가 완료되면 pyenv install 3.6.4 를 입력하여 파이썬 3.6.4를 설치할 수 있다.
 * pyenv를 통해 인스톨 가능한 목록은 pyenv install --list 를 통해 확인할 수 있다.
 * 최신버전이 있다면 목록을 확인 후 설치하면 된다.
-![13](https://user-images.githubusercontent.com/27793242/35060861-e2b3c016-fc02-11e7-9f4f-061fbc8d8d33.PNG)
+
+  ![13](https://user-images.githubusercontent.com/27793242/35060861-e2b3c016-fc02-11e7-9f4f-061fbc8d8d33.PNG)
 
 * pyenv global 3.6.4 를 입력하여 버전을 변경 후 pyenv version 을 입력해주면(스크린샷에는 다르게 나와있지만 둘다 확인 가능)
-![14](https://user-images.githubusercontent.com/27793242/35060879-ef532316-fc02-11e7-8f0b-7ced25176d56.PNG)
+
+  ![14](https://user-images.githubusercontent.com/27793242/35060879-ef532316-fc02-11e7-8f0b-7ced25176d56.PNG)
 
 * system상에 두가지 버전이 존재하는것을 확인할 수 있다.
-![15](https://user-images.githubusercontent.com/27793242/35060886-f5dfe32c-fc02-11e7-9fe8-e7b8ffc0e3b3.PNG)
+
+  ![15](https://user-images.githubusercontent.com/27793242/35060886-f5dfe32c-fc02-11e7-9fe8-e7b8ffc0e3b3.PNG)
 
 * 추가로 pip install -U pip 을 입력하면 현재 global로 지정되어있는 파이썬의 버전을 사용자 환경의 기본으로 변경한다.
 
