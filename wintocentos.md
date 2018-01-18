@@ -67,6 +67,7 @@
 * pyenv를 사용함으로써 파이썬 버전에 대한 의존성을 해결할 수 있다.
 
 * 해당 명령어를 터미널에 순차적으로 입력한다.
+```bash
 yum -y install git
 yum -y groupinstall "Development Tools"
 yum -y install readline-devel zlib-devel bzip2-devel sqlite-devel openssl-devel
@@ -76,11 +77,14 @@ echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bash_profile
 echo 'eval "$(pyenv init -)"' >> ~/.bash_profile
 source ~/.bash_profile
 exec $SHELL -l
+```
 
 * pyenv-virtualenv도 추가 설치.(로컬에 파이썬 환경을 구축, 사용할 수 있도록 한다.
+```bash
 git clone https://github.com/yyuu/pyenv-virtualenv.git ~/.pyenv/plugins/pyenv-virtualenv
 echo 'eval "$(pyenv virtualenv-init -)"' >> ~/.bash_profile
 exec $SHELL -l
+```
 
 * 설치가 완료되면 pyenv install 3.6.4 를 입력하여 파이썬 3.6.4를 설치할 수 있다.
 * pyenv를 통해 인스톨 가능한 목록은 pyenv install --list 를 통해 확인할 수 있다.
@@ -106,11 +110,15 @@ exec $SHELL -l
 * pyenv global 명령어로 시스템 전역의 파이썬 버전을 설정한다. $(pyenv root)/version 파일이 존재하지 않을 경우에는 "system" 디폴트 파이썬을 사용하는 것으로 간주한다.
 
 * 파이썬 인터프리터 실행 파일의 위치를 확인하려면 아래의 명령어로 확인할 수 있다.
+```bash
 $ pyenv which python3.6
 /home/user/.pyenv/versions/3.6.2/bin/python3.6
+```
 
 * 만약에 아래와 같이 오류가 발생한다면 파이썬이 올바로 설치되지 않은 것이다.
+```bash
 pyenv: python3.6: command not found
+```
 
 * pyenv install 명령어로 설치한 파이썬은 pyenv uninstall 명령어로 삭제할 수 있다.
 
@@ -125,18 +133,24 @@ eval "$(pyenv virtualenv-init -)"
 pyenv virtualenv venv
 
 * 현재 파이썬의 환경으로 venv 이름의 가상환경을 만들고 아래와 같이 결과를 확인할 수 있다.
+```bash
 $ pyenv versions
   system
 * 2.7.6 (set by /home/gd/.pyenv/version)
   3.6.4/envs/venv
   venv
+```
 
 * 명시적으로 파이썬 특정 버전을 지정해서 가상환경을 만드려면 다음과 같이 명령한다.
+```bash
 $ pyenv virtualenv 2.7.6 venv
-2.7.6 버전을 지정했고 그 결과는 아래와 같이 확인할 수 있다.
+```
 
+2.7.6 버전을 지정했고 그 결과는 아래와 같이 확인할 수 있다.
+```bash
 $ pyenv versions
   system
   2.7.6/envs/venv
 * 3.6.4 (set by /home/gd/.pyenv/version)
   venv
+```
