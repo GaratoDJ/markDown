@@ -95,163 +95,48 @@ exec $SHELL -l
 
 * 추가로 pip install -U pip 을 입력하면 현재 global로 지정되어있는 파이썬의 버전을 사용자 환경의 기본으로 변경한다.
 
+
+
+
+
+
 #별첨
 ### 아래 기술된 부분은 pyenv에 대한 추가적인 설명이다.
-파이썬 버전 선택 순서
-pyenv은 여러 개의 파이썬 버전을 설치할 수 있다. 그리고 pyenv가 파이썬 버전을 선택하는 순서를 올바르게 이해하고 정확히 사용하려는 파이썬 버전을 선택해야 한다.
 
-PYENV_VERSION 환경변수의 값
+* pyenv global 명령어로 시스템 전역의 파이썬 버전을 설정한다. $(pyenv root)/version 파일이 존재하지 않을 경우에는 "system" 디폴트 파이썬을 사용하는 것으로 간주한다.
 
-pyenv shell 명령어로 현재 터미널 세션의 환경변수를 설정한다. 터미널이 열린 상태에서 특정 파이썬 버전을 선택하여 명령할 때 유용하다.
-
-만약 환경변수 설정을 제거하려면 pyenv shell --unset으로 명령하거나 터미널을 종료하고 새로 연다.
-
-.python-version 파일의 값
-
-pyenv local 명령어로 현재 디렉토리 및 하위 디렉토리에서 실행되는 파이썬 버전을 설정한다. pyenv local 명령어로 .python-version 파일이 만들어지고 이 파일이 있는 디렉토리부터 재귀적으로 모든 하위 디렉토리에 적용된다. 따라서, 프로젝트 디렉토리 안에서 명시적으로 특정 파이썬 버전을 선택하고자 할 때 유용하다.
-
-만약 디렉토리 설정을 제거하려면 pyenv local --unset으로 명령하거나 디렉토리 안에 .python-version 파일을 삭제한다.
-
-$(pyenv root)/version 파일의 값
-
-pyenv global 명령어로 시스템 전역의 파이썬 버전을 설정한다. $(pyenv root)/version 파일이 존재하지 않을 경우에는 "system" 디폴트 파이썬을 사용하는 것으로 간주한다.
-
-많은 튜토리얼이 pyenv로 설치한 파이썬을 사용하기 위해 pyenv shell, pyenv local, pyenv global 명령어로 지정할 수 있다고 설명하고 각각의 차이를 설명하는 경우가 적다. 설정 우선순위 관계를 올바로 이해해야 사용할 때 혼동이 없다.
-
-여러 개의 파이썬 버전 선택
-tox 유틸리티로 호환성 검사할 때 매우 유용한 기능이다. pyenv를 통해 파이썬2와 파이썬3를 동시에 설치하여 빌드 검사를 할 수 있다.
-
-앞서 우분투 16.04 LTS의 경우 시스템 패키지로 파이썬 버전 2.7.12, 3.5.2 버전이 설치되고 system 파이썬으로 분류된다고 언급했다. 그리고 pyenv install 명령어로 필요에 따라 여러 개의 파이썬을 설치했다.
-
-python 명령어로 실행되는 기본적으로 실행되는 system 파이썬은 아래와 같다:
-
-$ python -V
-Python 2.7.12
-$ python3 -V
-Python 3.5.2
-pyenv를 사용하여 개발환경을 구축하기로 한 이상 system 버전은 사용하지 않도록 하겠다.
-
-이제 시스템 안에서 여러 개의 파이썬 버전을 선택하기 위해 python global 명령어로 버전을 나열해 지정할 수 있다.
-
-$ pyenv global 3.6.2 3.5.3 3.4.7 2.7.13
-이제 시스템에서 python, python3 명령어로 불러오는 버전을 확인해보면 다음과 같이 모두 pyenv로 설치한 3.6.2 버전인 것을 알 수 있다.
-
-$ python -V
-Python 3.6.2
-$ python3 -V
-Python 3.6.2
-만약 3.5.3, 3.4.7, 2.7.13 같은 버전을 사용하고 싶다면 각각 python3.5, python3.4, python2.7 명령어로 호출할 수 있다. 아래 예시는 python2.7로 system 기본 버전 2.7.12가 아니라 2.7.13 버전이 실행되는 것을 확인할 수 있다.
-
-$ python2.7
-Python 2.7.13 (default, Aug 20 2017, 15:43:40) 
-[GCC 5.4.0 20160609] on linux2
-Type "help", "copyright", "credits" or "license" for more information.
->>> 
-파이썬 인터프리터 실행 파일의 위치를 확인하려면 아래의 명령어로 확인할 수 있다.
-
+* 파이썬 인터프리터 실행 파일의 위치를 확인하려면 아래의 명령어로 확인할 수 있다.
 $ pyenv which python3.6
 /home/user/.pyenv/versions/3.6.2/bin/python3.6
-만약에 아래와 같이 오류가 발생한다면 파이썬이 올바로 설치되지 않은 것이다.
 
+* 만약에 아래와 같이 오류가 발생한다면 파이썬이 올바로 설치되지 않은 것이다.
 pyenv: python3.6: command not found
 
-The `python3.6' command exists in these Python versions:
-  3.6.2
-또한 참고로 여러 버전의 파이썬을 지정하기 위해 python global 명령어가 아니라 python local 명령어로도 지정할 수 있다.
+* pyenv install 명령어로 설치한 파이썬은 pyenv uninstall 명령어로 삭제할 수 있다.
 
-설치한 파이썬 삭제
-pyenv install 명령어로 설치한 파이썬은 pyenv uninstall 명령어로 삭제할 수 있다.
+* pyenv 설정이 꼬이고 설치된 여러 버전의 파이썬이 뭔가 문제를 일으킨다면 pyenv 자체를 삭제할 수 있다.
+* pyenv의 삭제는 $(pyenv root) 경로의 디렉토리를 간단히 삭제하면 되는데 일반적으로는 ~/.pyenv 디렉토리이다.
 
-pyenv uninstall 3.6.2
-pyenv 삭제
-pyenv 설정이 꼬이고 설치된 여러 버전의 파이썬이 뭔가 문제를 일으킨다면 pyenv 자체를 삭제할 수 있다.
-
-pyenv의 삭제는 $(pyenv root) 경로의 디렉토리를 간단히 삭제하면 되는데 일반적으로는 ~/.pyenv 디렉토리이다.
-
-virtualenv 가상환경
-준비
-curl로 인스톨러를 내려받아 pyenv 설치한 경우에는 virtualenv가 같이 설치되기 때문에 따로 설치할 필요는 없다. 그리고 앞서 ~/.bashrc 또는 ~/.bash_profile 파일에 다음 줄을 추가했기 때문에 가상환경을 위한 준비가 이미 되어 있다.
-
+* curl로 인스톨러를 내려받아 pyenv 설치한 경우에는 virtualenv가 같이 설치되기 때문에 따로 설치할 필요는 없다. 
+* ~/.bashrc 또는 ~/.bash_profile 파일에 다음 줄을 추가하면 때문에 가상환경을 위한 준비가 된다.
 eval "$(pyenv virtualenv-init -)"
-가상환경 생성
-가상환경의 생성은 pyenv virtualenv 명령어로 생성한다.
 
+* 가상환경의 생성은 pyenv virtualenv 명령어로 생성한다.
 pyenv virtualenv venv
-현재 파이썬의 환경으로 venv 이름의 가상환경을 만들고 아래와 같이 결과를 확인할 수 있다.
+
+* 현재 파이썬의 환경으로 venv 이름의 가상환경을 만들고 아래와 같이 결과를 확인할 수 있다.
+$ pyenv versions
+  system
+* 2.7.6 (set by /home/gd/.pyenv/version)
+  3.6.4/envs/venv
+  venv
+
+* 명시적으로 파이썬 특정 버전을 지정해서 가상환경을 만드려면 다음과 같이 명령한다.
+$ pyenv virtualenv 2.7.6 venv
+2.7.6 버전을 지정했고 그 결과는 아래와 같이 확인할 수 있다.
 
 $ pyenv versions
   system
-* 2.7.13 (set by /home/user/.pyenv/version)
-* 3.4.7 (set by /home/user/.pyenv/version)
-* 3.5.3 (set by /home/user/.pyenv/version)
-* 3.6.2 (set by /home/user/.pyenv/version)
-  3.6.2/envs/venv
+  2.7.6/envs/venv
+* 3.6.4 (set by /home/gd/.pyenv/version)
   venv
-시스템 기본 파이썬 버전이 3.6.2이기 때문에 해당 버전을 기준으로 가상환경이 만들어졌다.
-
-명시적으로 파이썬 특정 버전을 지정해서 가상환경을 만드려면 다음과 같이 명령한다.
-
-$ pyenv virtualenv 3.5.3 venv
-3.5.3 버전을 지정했고 그 결과는 아래와 같이 확인할 수 있다.
-
-$ pyenv versions
-  system
-* 2.7.13 (set by /home/user/.pyenv/version)
-* 3.4.7 (set by /home/user/.pyenv/version)
-* 3.5.3 (set by /home/user/.pyenv/version)
-  3.5.3/envs/venv
-* 3.6.2 (set by /home/user/.pyenv/version)
-  venv
-가상환경 선택
-가상환경을 선택하는 것은 결국 pyenv에서 어떤 버전의 파이썬을 선택할 것인가 하는 문제와 같다. 따라서 필요에 따라 pyenv shell, pyenv local, pyenv global 명령어 중 하나로 파이썬 버전을 선택한다.
-
-$  pyenv shell venv
-위와 같이 특정 가상환경을 선택하고 python, python3 버전을 확인해보면 다음과 같다.
-
-(venv) $ pyenv which python
-/home/user/.pyenv/versions/venv/bin/python
-(venv) $ python -V
-Python 3.5.3
-(venv) $ pyenv which python3
-/home/user/.pyenv/versions/venv/bin/python3
-(venv) $ python3 -V
-Python 3.5.3
-위와 같이 쉘에서 (venv) 가상환경으로 진입한 경우에는 pyenv로 설치한 3.4, 3.6 같은 다른 버전의 파이썬을 명령행에서 찾을 수 없다.
-
-$ pyenv which python3.4
-pyenv: python3.4: command not found
-
-The `python3.4' command exists in these Python versions:
-  3.4.7
-가상환경 삭제
-가상환경의 삭제는 pyenv install로 설치한 파이썬을 삭제하는 pyenv uninstall 명령어와 같다.
-
-$ pyenv uninstall venv
-요약: pyenv/virtualenv 실무적 시나리오
-pyenv를 사용하는 가장 큰 이유 중 하나가 tox와 연동하여 여러 버전의 파이썬으로 빌드 테스트하는 것이다. tox를 설명하는 것이 아니라 개발 환경을 만들고 tox를 연동하기 위한 방법을 설명한다.
-
-pyenv 설치
-$ apt-get install curl
-$ curl -L https://raw.githubusercontent.com/pyenv/pyenv-installer/master/bin/pyenv-installer | bash
-~/.bashrc 또는 ~/.bash_profile 파일 생성
-export PATH="${HOME}/.pyenv/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
-빌드 컴파일러 및 라이브러리 패키지 설치
-$ sudo apt-get install build-essential libreadline-dev zlib1g-dev libbz2-dev libsqlite3-dev libssl-dev
-pyenv로 파이썬 다운로드 빌드 설치
-$ pyenv install 2.7.13
-$ pyenv install 3.4.7
-$ pyenv install 3.5.3
-$ pyenv install 3.6.2
-가상환경 설치 (-p 옵션을 주지 않으면 가상환경으로 진입했을 때 다른 버전의 python을 찾을 수 없음)
-$ pyenv virtualenv -p python3.6 3.6.2 venv
-여러 개의 파이썬 버전 선택(디폴트=venv 3.6.2 버전 가상환경)
-$ pyenv global venv 3.5.3 3.4.7 2.7.13
-만약 여러 개의 파이썬 버전을 등록해두지 않으면 이후 tox 명령어 실행 시 파이썬 인터프리터를 찾지 못해 가상환경이 생성하지 않는 오류가 발생할 수 있다.
-
-파이썬 버전 쉘로 지정 ((venv) 프롬프트가 활성화되지 않은 경우)
-$ pyenv shell venv
-tox 설치 및 실행
-$ pip install tox
-$ tox
